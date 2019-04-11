@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  item_details: MyText
+  item_old_price: 9.99
+  item_new_price: 9.99
+  item_av_rating: 9.99
+  item_reviews: MyString
+  item_location: MyString
+  item_sku: MyString
+  item_currency_symbol: MyString
+  item_image: MyString
+  item_seller_name: MyString
+  item_url: MyString
+
+two:
+  item_name: MyString
+  item_details: MyText
+  item_old_price: 9.99
+  item_new_price: 9.99
+  item_av_rating: 9.99
+  item_reviews: MyString
+  item_location: MyString
+  item_sku: MyString
+  item_currency_symbol: MyString
+  item_image: MyString
+  item_seller_name: MyString
+  item_url: MyString

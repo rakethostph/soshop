@@ -1,0 +1,336 @@
+$sos-primary: #1EA4DE;
+$sos-secondary: #EE3A2B;
+$white: #ffffff;
+
+@font-face {
+font-family: 'Font-Awesome';
+
+src: font-url('fa-brands-400.eot');
+src: font-url('fa-regular-400.eot');
+src: font-url('fa-solid-900.eot');
+
+src: font-url('fa-brands-400.woff2') format('woff2');
+src: font-url('fa-regular-400.woff2') format('woff2');
+src: font-url('fa-solid-900.woff2') format('woff2');
+
+src: font-url('fa-brands-400.woff') format('woff');
+src: font-url('fa-regular-400.woff') format('woff');
+src: font-url('fa-solid-900.woff') format('woff');
+
+src: font-url('fa-brands-400.ttf') format('truetype');
+src: font-url('fa-regular-400.ttf') format('truetype');
+src: font-url('fa-solid-900.ttf') format('truetype');
+}
+
+
+.body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', '', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+.myprezeo-font-opensans {
+  font-family: 'Open Sans';
+}
+
+.myprzeo-font-opensans {
+  font-family: 'Open Sans';
+}
+
+.myprzeo-font-opensans {
+  font-family: 'Open Sans';
+}
+
+.myprezeo-font-opensans-condensed {
+  font-family: 'Open Sans Condensed';
+}
+
+.sos-fullwidth {
+  width: 100%;
+  height: 100vh;
+}
+
+.text-sos-primary {
+  color: #1EA4DE;
+}
+
+.sos-container {
+  background-image: url(../../assets/img/myprezeo-logo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sos-logo-wrapper {
+  width: 25px;
+  height: 25px;
+}
+
+#logo-width {
+  width: 25px;
+  padding: 100%;
+}
+
+.rounded-full {
+  border-radius: 99px;
+}
+
+.rounded-left-full {
+  -webkit-border-top-left-radius: 99px;
+  -webkit-border-bottom-left-radius: 99px;
+  -moz-border-radius-topleft: 99px;
+  -moz-border-radius-bottomleft: 99px;
+  border-top-left-radius: 99px;
+  border-bottom-left-radius: 99px;
+}
+
+.rounded-right-full {
+  -webkit-border-top-right-radius: 99px;
+  -webkit-border-bottom-right-radius: 99px;
+  -moz-border-radius-topright: 99px;
+  -moz-border-radius-bottomright: 99px;
+  border-top-right-radius: 99px;
+  border-bottom-right-radius: 99px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1EA4DE !important;
+  border-color: #1EA4DE !important;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(33, 170, 236, 0.5) !important;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: rgba(33, 170, 236, 0.5);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(33, 170, 236, 0.5);
+}
+
+#forms-width-center {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#logo {
+  background-image: url("../../assets/img/sos-logo-only.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 77px;
+  height: 45px;
+}
+
+.sos-img-wrapper {
+  width: 100%;
+}
+
+.sos-img-holder {
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+#bag-001 {
+  background-image: url("../../assets/img/5ba45cc7e46073a8341832bb_dual-zip-laptop-bag-1-saturation.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-gray {
+  background-color: #ededed;
+}
+
+.sos-no-underline {
+  text-decoration: none !important;
+}
+
+#shoe-001 {
+  background-image: url("../../assets/img/5ba45c81e46073349118329e_20017969.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#almond-001 {
+  background-image: url("../../assets/img/5ba45c81e783e2845a2f4bdd_20170411231747177_028_RE_WI.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#dress-001 {
+  background-image: url("../../assets/img/5ba45c81ca2a2f56bf670e24_file_29608d6c.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#minnions-001 {
+  background-image: url("../../assets/img/5ba45d45104c535498b47b23_minion-10-inch-soft-toys.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#stroller-001 {
+  background-image: url("../../assets/img/5ba45d4573b5d2881a9f42b8_719209+DnbL._SY355_.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#shoe-female-001 {
+  background-image: url("../../assets/img/5ba45d45104c534f19b47b22_002ux570t_w600_h600.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#camera-001 {
+  background-image: url("../../assets/img/5ba45e5d21cb914a3fdb7bbb_pic_ogp_01.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#iphone-001 {
+  background-image: url("../../assets/img/5ba45e5dbf19f07526bdbaec_0006975_iphonex-34lineup-gb-en-screenjpg.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#ps4-001 {
+  background-image: url("../../assets/img/5ba45e5d21cb917964db7bbc_ps4_god_of_war_4_73.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#spider-001 {
+  background-image: url("../../assets/img/5ba45e5d104c533e99b47b51_10585905.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sos-active {
+  background-color: #1EA4DE;
+  background: #1EA4DE;
+}
+
+.bg-sos {
+  background-color: #1EA4DE;
+}
+
+.sos-btn-link a {
+  font-weight: 400;
+  color: #fff;
+  background-color: transparent;
+}
+
+.sos-btn-link {
+  color: #fff;
+}
+
+.btn-outline-primary {
+  color: #1EA4DE;
+  background-color: transparent;
+  background-image: none;
+  border-color: #1EA4DE;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #1EA4DE;
+  border-color: #1EA4DE;
+}
+
+#rating-wrapper-filter {
+  z-index: 100;
+  width: 350px;
+}
+
+#country-wrapper-filter {
+  z-index: 101;
+  width: 350px;
+}
+
+#price-wrapper-filter {
+  z-index: 99;
+  width: 350px;
+}
+
+.sos-shadow {
+  -webkit-box-shadow: 0px 0px 5px 2px #cccccc;
+  -moz-box-shadow: 0px 0px 5px 2px #cccccc;
+  box-shadow: 0px 0px 5px 2px #cccccc;
+}
+
+#rating-filter-holder {
+  width: 350px;
+  z-index: 101;
+}
+
+#search-width {
+  width: 400px;
+}
+
+.btn-pill-right {
+  border-top-right-radius: 99px;
+  border-bottom-right-radius: 99px;
+}
+
+@media (max-width: 576px) {
+  #searchformnav {
+    display: none;
+  }
+}
+
+.btn-pill-left {
+  border-top-left-radius: 99px;
+  border-bottom-left-radius: 99px;
+}
+
+li.active {
+  background-color: #1EA4DE !important;
+}
+
+.text-sos-secondary {
+  color: #EE3A2B !important;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #1EA4DE !important;
+  border-color: #1EA4DE !important;
+}
+
+fooot a {
+  color: #ffffff !important;
+}
+a.my-prezeo-no-underline{
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  #search-row-main {
+    display: none;
+  }
+}

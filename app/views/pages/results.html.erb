@@ -1,0 +1,174 @@
+<header id="head">
+    <nav class="navbar navbar-light navbar-expand-md bg-light">
+        <div class="container-fluid">
+            <%= link_to "", root_path, class: "navbar-brand", id: "logo" %>
+            
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mr-auto"
+                id="navcol-1">
+
+            <%= form_for :search_items, url: results_path, method: :get, class: "form-inline", id: "searchformnav" do |form| %>
+                <div class="input-group">
+                    <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", id: "search-width", placeholder: "Search Items Or Product..." %>
+                    <div class="input-group-append">
+                        <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
+                        <i class="fas fa-search"></i>
+                        <% end -%>
+                    </div>
+                </div>
+            <% end %>
+
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section id="products" class="bg-gray">
+    <div class="container">
+        <div class="row pt-5 d-none d-sm-block d-md-none d-block d-sm-none" id="searchformmobile">
+            <div class="col">
+                <div class="input-group"><input class="form-control btn-pill-left" type="text" placeholder="Search Items or Products ...">
+                    <div class="input-group-append"><button class="btn btn-primary btn-pill-right" type="button"><i class="fas fa-search"></i></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5" id="filter">
+            <div class="col h3">
+                <h1 class="h3">Filter</h1>
+                <div class="d-flex">
+                    <div id="price" class="dropdown"><button class="btn btn-outline-primary mr-3" type="button" id="btn-price-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">Price</button>
+                        <div class="row dropdown-menu bg-white py-3 rounded my-prezeo-shadow"
+                            id="price-filter-wrapper" aria-labelledby="btn-price-filter">
+                            <div class="col-xl-12 offset-xl-0" id="price-wrapper-filter">
+                                <form>
+                                    <div class="form-group">
+                                        <label>Min Price</label>
+                                        <input class="form-control" type="text" placeholder="Min Price" inputmode="numeric">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Max Price</label>
+                                        <input class="form-control" type="text" placeholder="Max Price">
+                                    </div>
+                                    <div class="ml-auto text-right"><button class="btn btn-outline-primary" type="button">Apply</button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="country" class="dropdown"><button class="btn btn-outline-primary mr-3" type="button" id="btn-country-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">Country</button>
+                        <div class="row dropdown-menu bg-white py-3 rounded my-prezeo-shadow"
+                            id="country-filter-wrapper" aria-labelledby="btn-country-filter">
+                            <div class="col-xl-12 offset-xl-0" id="country-wrapper-filter">
+                                <form>
+                                    <div class="form-group"><label for="Country">Select Country</label><select class="form-control"><option value="">This is a group</option><option value="1" selected="">Country 1</option><option value="2">Country 2</option><option value="3">Country 3</option></select></div>
+                                    <div
+                                        class="ml-auto text-right"><button class="btn btn-outline-primary" type="button">Apply</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="rating" class="dropdown"><button class="btn btn-outline-primary mr-3" type="button" id="btn-rating-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">Rating</button>
+                    <div class="row dropdown-menu bg-white py-3 rounded my-prezeo-shadow"
+                        id="rating-filter-wrapper" aria-labelledby="btn-rating-filter">
+                        <div class="col-xl-12 offset-xl-0" id="rating-filter-holder">
+                            <form>
+                                <div class="form-group"><label for="Rating">Ratings</label>
+                                    <div class="clearfix"></div><input type="range" multiple="" value="1,5" class="multirange ghost form-control" style="--low:1; --high:3"></div>
+                            </form>
+                            <div id="slider-range-rating"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <% unless @items.nil? %>
+    <% if @items.empty? %>
+    <h2>No Item found matching your query.</h2>
+    <% else %>
+    <h2>Search results</h2>
+    <% @items.each_slice(4) do |items| %>
+        <div class="row my-3" id="product-list-1">
+            <% items.each do |item| %>
+                <div class="col col-12 col-xl-3 col-lg-3 col-md-6 col-sm-6 my-3 position-relative">
+                    <a href="#" class="my-prezeo-no-underline">
+                        <div data-bs-hover-animate="pulse" id="item-wrapper" class="container bg-white p-3 rounded">
+                            <div id="img-wrapper" class="my-prezeo-img-wrapper mb-3">
+                                <div id="<%= item.id %>" class="my-prezeo-img-holder item-container" style="background-image: url(<%= image_path item.item_image %>);width: 100%;
+    background-size: contain; padding-bottom: 100%;"></div>
+                                
+                            </div>
+                            <div id="title-wrapper" class="title-wrapper mb-3 text-dark">
+                                <h2 class="h5"><%= item.item_name.truncate(20, separator: ' ') %></h2>
+                            </div>
+                            <div id="price-wrapper" class="price-wrapper">
+                                <h4 class="h5 font-weight-bold my-prezeo-color"><%= item.item_currency_symbol %> <%= item.item_new_price %></h4><small class="discount text-dark"><span class="text-secondary"><del><%= item.item_currency_symbol %> <%= item.item_old_price %></del></span><span class="font-weight-bold ml-2">-52</span></small></div>
+                            <div id="rating-wrapper" class="rating-wrapper mb-3">
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <div id="title-wrapper"
+                                class="title-wrapper">
+                                <p class="mb-1 h6"><span class="font-weight-bold my-prezeo-color">Seller:</span><span class="ml-1 text-danger"><%= URI.parse(item.item_url).host %></span></p>
+                                <p class="text-right mb-1"><span class="small text-secondary"><%= item.item_location %></span></p>
+                            </div>
+
+                            <div id="product-view" class="mb-3"><a class="btn btn-outline-warning btn-block" role="button" href="#" data-toggle="modal" data-target="#item-<%= item.id %>">View Detail</a></div>
+                            <div id="product-btn">
+                                <%= link_to item.item_url, class: "btn btn-outline-primary btn-block", role: "button", target:"_blank" do %>
+                                    Buy This Product
+                                <% end -%>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% end -%>
+        
+        </div>
+    <% end -%>
+    <% end -%>
+    <div class="row" id="pagination">
+        <div class="col">
+            <%= paginate @items %>
+
+            
+        </div>
+    </div>
+
+    <%= render 'modal' %>
+    <% end %>
+</section>
+<section id="footer" class="bg-sos">
+    <div class="container text-white small">
+        <div class="row py-3">
+            <div class="col">
+                <p class="my-2">© 2018 Smart Online Shopping</p>
+            </div>
+            <div class="col">
+                <p class="text-right my-2"><a href="#" class="sos-btn-link mx-3">privacy Policy</a><a href="#" class="sos-btn-link mx-3">SLA</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+$(document).on('turbolinks:load', function() {
+    $('[data-bs-hover-animate]')
+        .mouseenter( function(){ 
+            var elem = $(this); 
+            elem.addClass('animated ' + elem.attr('data-bs-hover-animate')) 
+        })
+        .mouseleave( function(){ 
+            var elem = $(this); 
+            elem.removeClass('animated ' + elem.attr('data-bs-hover-animate')) });
+});
+</script>

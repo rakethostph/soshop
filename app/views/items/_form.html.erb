@@ -1,0 +1,82 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :affiliate_company %>
+    <%= form.collection_select :affiliate_id, Affiliate.all, :id, :affiliate_company, {promt: "Choose a Company" }, class: "custom-select" %>
+  </div>
+  
+
+  <div class="form-group">
+    <%= form.label :item_details %>
+    <%= form.text_area :item_details, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_old_price %>
+    <%= form.text_field :item_old_price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_new_price %>
+    <%= form.text_field :item_new_price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_av_rating %>
+    <%= form.text_field :item_av_rating, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_reviews %>
+    <%= form.text_field :item_reviews, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_location %>
+    <%= form.text_field :item_location, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_sku %>
+    <%= form.text_field :item_sku, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_currency_symbol %>
+    <%= form.text_field :item_currency_symbol, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_image %>
+    <%= form.text_field :item_image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_seller_name %>
+    <%= form.text_field :item_seller_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :item_url %>
+    <%= form.text_field :item_url, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

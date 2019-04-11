@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @item.item_name %>
+</p>
+
+<p>
+  <strong>Item details:</strong>
+  <%= @item.item_details %>
+</p>
+
+<p>
+  <strong>Item old price:</strong>
+  <%= @item.item_old_price %>
+</p>
+
+<p>
+  <strong>Item new price:</strong>
+  <%= @item.item_new_price %>
+</p>
+
+<p>
+  <strong>Item av rating:</strong>
+  <%= @item.item_av_rating %>
+</p>
+
+<p>
+  <strong>Item reviews:</strong>
+  <%= @item.item_reviews %>
+</p>
+
+<p>
+  <strong>Item location:</strong>
+  <%= @item.item_location %>
+</p>
+
+<p>
+  <strong>Item sku:</strong>
+  <%= @item.item_sku %>
+</p>
+
+<p>
+  <strong>Item currency symbol:</strong>
+  <%= @item.item_currency_symbol %>
+</p>
+
+<p>
+  <strong>Item image:</strong>
+  <%= @item.item_image %>
+</p>
+
+<p>
+  <strong>Item seller name:</strong>
+  <%= @item.item_seller_name %>
+</p>
+
+<p>
+  <strong>Item url:</strong>
+  <%= @item.item_url %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
