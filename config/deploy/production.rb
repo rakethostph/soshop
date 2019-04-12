@@ -59,3 +59,4 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+server '142.93.16.233', user: 'soshop_ph', roles: %w{app db web}
