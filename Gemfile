@@ -37,7 +37,11 @@ gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '6.x'
 
 gem 'user_agent_randomizer', '~> 0.1.1'
 gem 'progress_bar', '~> 1.0', '>= 1.0.5'
-# gem 'bundler', '~> 2.0', '>= 2.0.1'
+
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
