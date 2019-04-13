@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,10 +38,13 @@ gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '6.x'
 gem 'user_agent_randomizer', '~> 0.1.1'
 gem 'progress_bar', '~> 1.0', '>= 1.0.5'
 
-gem 'capistrano', '~> 3.11'
-gem 'capistrano-rails', '~> 1.4'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
+gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+gem 'capistrano-bundler'
+gem 'capistrano-rails-console'
+gem 'capistrano-chewy', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
