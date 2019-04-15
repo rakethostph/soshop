@@ -1,5 +1,5 @@
 require_relative 'boot'
-require 'elasticsearch/rails/instrumentation'
+# require 'elasticsearch/rails/instrumentation'
 
 require 'rails/all'
 

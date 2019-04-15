@@ -53,6 +53,4 @@ class Item < ApplicationRecord
 	    "item_url" => item_url
 	  }
 	end 
-
-
 end
