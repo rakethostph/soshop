@@ -7,9 +7,10 @@ require 'capistrano/bundler'
 require 'capistrano/scm/git'
 require 'capistrano/rails/console'
 
-set :rbenv_type, :user
-# set :rvm_ruby_version, '2.6.0'
-set :rbenv_ruby, '2.6.0'
+# set :rbenv_type, :user
+set :rvm__type, :user
+set :rvm_ruby_version, '2.6.0'
+# set :rbenv_ruby, '2.6.0'
 
 
 set :chewy_conditionally_reset, false    # Reset only modified Chewy indexes, true by default
