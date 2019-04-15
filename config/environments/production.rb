@@ -91,8 +91,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  # config.require_master_key = true
-  config.read_encrypted_secrets = true
+  config.require_master_key = true
+  # config.read_encrypted_secrets = true
   # config.enable_dependency_loading = true
   # config.autoload_paths << Rails.root.join('lib')
 end
