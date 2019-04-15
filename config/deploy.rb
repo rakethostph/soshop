@@ -1,3 +1,7 @@
+# config valid for current version and patch releases of Capistrano
+lock "~> 3.11.0"
+
+# Change these
 server '142.93.16.233', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'https://github.com/rakethostph/soshop.git'
