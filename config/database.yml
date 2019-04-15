@@ -20,6 +20,14 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: soshoph_sgeb5snaw
+  pool: 5
+  username: soshop_ph
+  password: QMHeVhbPCsJBetAd

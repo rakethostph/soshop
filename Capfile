@@ -1,24 +1,12 @@
+# Load DSL and set up stages
 require 'capistrano/setup'
 require 'capistrano/deploy'
+
 require 'capistrano/rails'
-require 'capistrano/rvm'
 require 'capistrano/bundler'
-# require 'capistrano/puma'
-require 'capistrano/scm/git'
-require 'capistrano/rails/console'
-
-# set :rbenv_type, :user
-set :rvm__type, :user
-set :rvm_ruby_version, '2.6.0'
-# set :rbenv_ruby, '2.6.0'
-
-
-set :chewy_conditionally_reset, false    # Reset only modified Chewy indexes, true by default
-set :chewy_path, 'app/my_indexes'        # Path to Chewy indexes, 'app/chewy' by default
-set :chewy_env, :chewy_production        # Environment variable for Chewy, equal to RAILS_ENV by default
-set :chewy_role, :web                    # Chewy role, :app by default  
-set :chewy_default_hooks, false          # Add default gem hooks to project deploy flow, true by default
-set :chewy_delete_removed_indexes, false # Delete indexes which files have been deleted, true by default
+require 'capistrano/rvm'
+require 'capistrano/puma'
+install_plugin Capistrano::Puma
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -29,8 +17,8 @@ set :chewy_delete_removed_indexes, false # Delete indexes which files have been 
 # install_plugin Capistrano::SCM::Svn
 # or
 require "capistrano/scm/git"
-# install_plugin Capistrano::Puma
 install_plugin Capistrano::SCM::Git
+install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
 
 # Include tasks from other gems included in your Gemfile
 #
