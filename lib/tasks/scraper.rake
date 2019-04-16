@@ -162,4 +162,21 @@ namespace :scraper do
 		    puts e
 		end
   	end
+
+  	desc "Scrape Boozy Site"
+  	task seed_boozy: :environment do
+		require 'csv'
+		CSV.foreach('db/seed_data/boozy_products.csv', headers: true) do |row|
+			Item.create(
+			    item_name: row[0],
+			    item_image: row[1],
+			    item_new_price: row[2],
+			    item_currency_symbol: row[3],
+			    item_url: row[4]
+			    
+			)
+			puts "Post: " + "#{$.}".to_s
+		end
+  	end
+
 end
