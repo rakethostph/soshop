@@ -9,4 +9,7 @@ require "capistrano/scm/git"
 install_plugin Capistrano::Puma
 install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
+
+set :rvm_type, :user
+set :rvm_ruby_version, '2.6.0'
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
