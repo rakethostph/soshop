@@ -90,7 +90,7 @@ namespace :scraper do
 	require 'json'
 	require 'progress_bar'
 
-		max_page 				= 18
+		max_page 				= 21
 		item_name 				= []
 		item_image 				= []
 		item_new_price 			= []
@@ -166,7 +166,7 @@ namespace :scraper do
   	desc "Scrape Boozy Site"
   	task seed_boozy: :environment do
 		require 'csv'
-		CSV.foreach('db/seed_data/boozy_products.csv', headers: true) do |row|
+		CSV.foreach('boozy_products.csv', headers: true) do |row|
 			Item.create(
 			    item_name: row[0],
 			    item_image: row[1],
