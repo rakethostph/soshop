@@ -28,6 +28,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # append :linked_files, 'config/database.yml'
 append :linked_files, 'config/master.key'
 
+# sudo ln -nfs "/home/soshop_ph/soshop/current/config/nginx.conf" "/etc/nginx/sites-enabled/soshop"
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
