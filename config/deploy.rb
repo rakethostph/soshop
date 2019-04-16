@@ -28,6 +28,14 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # append :linked_files, 'config/database.yml'
 append :linked_files, 'config/master.key'
 
+
+set :chewy_conditionally_reset, false    # Reset only modified Chewy indexes, true by default
+set :chewy_path, 'soshop/index'        # Path to Chewy indexes, 'app/chewy' by default
+set :chewy_env, :chewy_production        # Environment variable for Chewy, equal to RAILS_ENV by default
+set :chewy_role, :web                    # Chewy role, :app by default  
+set :chewy_default_hooks, false          # Add default gem hooks to project deploy flow, true by default
+set :chewy_delete_removed_indexes, false # Delete indexes which files have been deleted, true by default
+
 # sudo ln -nfs "/home/soshop_ph/soshop/current/config/nginx.conf" "/etc/nginx/sites-enabled/soshop"
 
 ## Defaults:

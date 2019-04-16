@@ -76,6 +76,9 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (1.5.0)
       capistrano (~> 3.1)
+    capistrano-chewy (0.2.2)
+      capistrano (~> 3.0)
+      chewy (~> 0.4)
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -96,6 +99,10 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    chewy (0.10.1)
+      activesupport (>= 4.0)
+      elasticsearch (>= 2.0.0)
+      elasticsearch-dsl
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.2)
@@ -112,6 +119,7 @@ GEM
       elasticsearch-transport (= 6.3.0)
     elasticsearch-api (6.3.0)
       multi_json
+    elasticsearch-dsl (0.1.7)
     elasticsearch-transport (6.3.0)
       faraday
       multi_json
@@ -288,6 +296,7 @@ DEPENDENCIES
   byebug
   capistrano
   capistrano-bundler
+  capistrano-chewy
   capistrano-rails
   capistrano-rake
   capistrano-rvm

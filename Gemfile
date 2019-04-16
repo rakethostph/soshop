@@ -26,6 +26,7 @@ group :development do
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
     gem 'capistrano-rake',    require: false
+    gem 'capistrano-chewy',   require: false
 end
 
 group :development, :test do
