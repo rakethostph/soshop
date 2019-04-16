@@ -6,6 +6,7 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 require "capistrano/scm/git"
+require 'capistrano/rake'
 install_plugin Capistrano::Puma
 install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
