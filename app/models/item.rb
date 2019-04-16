@@ -3,7 +3,6 @@ require 'elasticsearch/model'
 class Item < ApplicationRecord
 
 	paginates_per 16
-
 	# belongs_to :affiliate
 	after_save :index_items_in_elasticsearch
 
