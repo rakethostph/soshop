@@ -37,6 +37,8 @@ set :chewy_default_hooks, false          # Add default gem hooks to project depl
 set :chewy_delete_removed_indexes, false # Delete indexes which files have been deleted, true by default
 
 # sudo ln -nfs "/home/soshop_ph/soshop/current/config/nginx.conf" "/etc/nginx/sites-enabled/soshop"
+# systemctl status nginx.service
+# systemctl restart nginx.service
 
 ## Defaults:
 # set :scm,           :git
