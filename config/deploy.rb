@@ -28,6 +28,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # append :linked_files, 'config/database.yml'
 append :linked_files, 'config/master.key'
 
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+
 
 set :chewy_conditionally_reset, false    # Reset only modified Chewy indexes, true by default
 set :chewy_path, 'soshop/index'        # Path to Chewy indexes, 'app/chewy' by default
