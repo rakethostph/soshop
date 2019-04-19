@@ -99,7 +99,7 @@ namespace :deploy do
       run "bundle exec rake #{ENV['task']} RAILS_ENV=#{rails_env}"
     end
   end
-  
+
   namespace :rails do
     desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
     task :console do
@@ -110,8 +110,13 @@ namespace :deploy do
       cmd = "ssh #{server.user}@#{server.hostname} -t 'cd #{fetch(:deploy_to)}/current && RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console'"
       # RAILS_ENV=production bundle exec rails console
       puts cmd
-
       exec cmd
+    end
+  end
+  namespace :elasticsearch do
+    desc 'Import Data to Elasticsearch'
+    task :import do
+      RAILS_ENV=production bundle exec rake environment elasticsearch:import:model CLASS='Item'
     end
   end
 
