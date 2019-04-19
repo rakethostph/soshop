@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '6.x'
 gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '6.x'
+# gem 'elasticsearch-transport', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 
 gem 'user_agent_randomizer', '~> 0.1.1'
 gem 'progress_bar', '~> 1.0', '>= 1.0.5'

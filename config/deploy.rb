@@ -99,6 +99,7 @@ namespace :deploy do
       run "bundle exec rake #{ENV['task']} RAILS_ENV=#{rails_env}"
     end
   end
+  
   namespace :rails do
     desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
     task :console do
