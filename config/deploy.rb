@@ -116,7 +116,7 @@ namespace :deploy do
   namespace :elasticsearch do
     desc 'Import Data to Elasticsearch'
     task :import do
-      RAILS_ENV=production bundle exec rake environment elasticsearch:import:model CLASS='Item'
+      run "RAILS_ENV=#{fetch(:rails_env)} bundle exec rake environment elasticsearch:import:model CLASS='Item'"
     end
   end
 
