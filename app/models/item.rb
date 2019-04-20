@@ -8,22 +8,22 @@ class Item < ApplicationRecord
 
 	include Elasticsearch::Model
   	include Elasticsearch::Model::Callbacks
-  	settings do
-	    mappings dynamic: false do
-			indexes :item_name, type: :text, analyzer: :english
-		    indexes :item_details, type: :text, analyzer: :english
-		    indexes :item_old_price, type: :integer
-		    indexes :item_new_price, type: :integer
-		    indexes :item_av_rating, type: :integer
-		    indexes :item_reviews, type: :text
-		    indexes :item_location, type: :text
-		    indexes :item_sku, type: :text
-		    indexes :item_currency_symbol, type: :text
-		    indexes :item_image, type: :text
-		    indexes :item_seller_name, type: :text
-		    indexes :item_url, type: :text
-	    end
-	end
+  	
+    mappings dynamic: false do
+		indexes :item_name, type: :text, analyzer: :english
+	    indexes :item_details, type: :text, analyzer: :english
+	    indexes :item_old_price, type: :integer
+	    indexes :item_new_price, type: :integer
+	    indexes :item_av_rating, type: :integer
+	    indexes :item_reviews, type: :text
+	    indexes :item_location, type: :text
+	    indexes :item_sku, type: :text
+	    indexes :item_currency_symbol, type: :text
+	    indexes :item_image, type: :text
+	    indexes :item_seller_name, type: :text
+	    indexes :item_url, type: :text
+    end
+	
 
 	def self.search_items(query)
 	  self.search(
