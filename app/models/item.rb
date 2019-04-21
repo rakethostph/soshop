@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
 	paginates_per 16
 	# belongs_to :affiliate
-	# after_save :index_items_in_elasticsearch
+	after_save :index_items_in_elasticsearch
 
 	include Elasticsearch::Model
   	include Elasticsearch::Model::Callbacks
