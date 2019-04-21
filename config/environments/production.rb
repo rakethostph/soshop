@@ -95,4 +95,6 @@ Rails.application.configure do
   # config.read_encrypted_secrets = true
   # config.enable_dependency_loading = true
   # config.autoload_paths << Rails.root.join('lib')
+  config.logger = ActiveSupport::Logger.new(
+                     config.paths['log'].first, 1, 50 * 1024 * 1024)
 end
