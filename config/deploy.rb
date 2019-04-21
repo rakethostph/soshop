@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 # Change these
-server '142.93.16.233', port: 22, roles: [:web, :app, :db], primary: true
+server '68.183.236.2', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'https://github.com/rakethostph/soshop.git'
 set :application,     'soshop'
@@ -39,8 +39,8 @@ set :chewy_default_hooks, false          # Add default gem hooks to project depl
 set :chewy_delete_removed_indexes, false # Delete indexes which files have been deleted, true by default
 
 # sudo ln -nfs "/home/soshop_ph/soshop/current/config/nginx.conf" "/etc/nginx/sites-enabled/soshop"
-# systemctl status nginx.service
-# systemctl restart nginx.service
+# sudo systemctl status nginx.service
+# sudo systemctl restart nginx.service
 
 ## Defaults:
 # set :scm,           :git
@@ -116,6 +116,7 @@ namespace :deploy do
   namespace :elasticsearch do
     desc 'Import Data to Elasticsearch'
     task :import do
+      # rake environment tire:import CLASS=Model_Name FORCE=true
       run "RAILS_ENV=#{fetch(:rails_env)} bundle exec rake environment elasticsearch:import:model CLASS='Item'"
     end
   end
