@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def app_name
-		@app_name = "#{'Yintly'}"
+		@app_name = "Smart Online Shopping PH"
 	end
 
 	def app_logo
