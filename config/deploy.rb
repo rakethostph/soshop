@@ -97,6 +97,7 @@ namespace :deploy do
     task :invoke do
       run "cd #{deploy_to}/current"
       run "bundle exec rake #{ENV['task']} RAILS_ENV=#{rails_env}"
+      # RAILS_ENV=production bundle exec rake scraper:seed_boozy
     end
   end
 
