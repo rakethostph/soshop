@@ -15,7 +15,7 @@
                     <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", id: "search-width", placeholder: "Search Items Or Product..." %>
                     <div class="input-group-append">
                         <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
-                        <i class="fas fa-search"></i>
+                            <i class="fas fa-search"></i>
                         <% end -%>
                     </div>
                 </div>
@@ -31,13 +31,23 @@
 </header>
 <section id="products" class="bg-gray">
     <div class="container">
-        <div class="row pt-5 d-none d-sm-block d-md-none d-block d-sm-none" id="searchformmobile">
-            <div class="col">
-                <div class="input-group"><input class="form-control btn-pill-left" type="text" placeholder="Search Items or Products ...">
-                    <div class="input-group-append"><button class="btn btn-primary btn-pill-right" type="button"><i class="fas fa-search"></i></button></div>
+        <%= form_for :search_items, url: results_path, method: :get do |form| %>
+            <div class="row pt-5 d-none d-sm-block d-md-none d-block d-sm-none" id="searchformmobile">
+                <div class="col">
+
+                    <div class="input-group">
+
+                        <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", id: "search-width", placeholder: "Search Items Or Product..." %>
+                        <div class="input-group-append">
+                            <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
+                                <i class="fas fa-search"></i>
+                            <% end -%>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
+        <% end %>
         <div class="row pt-5" id="filter">
             <div class="col h3">
                 <h1 class="h3">Filter</h1>
