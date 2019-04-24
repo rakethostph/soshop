@@ -31,8 +31,9 @@
 </header>
 <section id="products" class="bg-gray">
     <div class="container">
-        <%= form_for :search_items, url: results_path, method: :get do |form| %>
+        
             <div class="row pt-5 d-none d-sm-block d-md-none d-block d-sm-none" id="searchformmobile">
+                <%= form_for :search_items, url: results_path, method: :get do |form| %>
                 <div class="col">
 
                     <div class="input-group">
@@ -44,10 +45,10 @@
                             <% end -%>
                         </div>
                     </div>
-
                 </div>
+                <% end %>
             </div>
-        <% end %>
+        
         <div class="row pt-5" id="filter">
             <div class="col h3">
                 <h1 class="h3">Filter</h1>
