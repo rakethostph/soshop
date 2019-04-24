@@ -9,17 +9,18 @@
             </button>
             <div class="collapse navbar-collapse mr-auto"
                 id="navcol-1">
-
-            <%= form_for :search_items, url: results_path, method: :get, class: "form-inline", id: "searchformnav" do |form| %>
-                <div class="input-group">
-                    <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", id: "search-width", placeholder: "Search Items Or Product..." %>
-                    <div class="input-group-append">
-                        <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
+            <div class="d-none d-xl-block d-lg-block d-xl-none d-md-block d-lg-none">
+                <%= form_for :search_items, url: results_path, method: :get, class: "form-inline", id: "searchformnav" do |form| %>
+                    <div class="input-group">
+                        <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", id: "search-width", placeholder: "Search Items Or Product..." %>
+                        <div class="input-group-append">
+                            <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
                             <i class="fas fa-search"></i>
-                        <% end -%>
+                            <% end -%>
+                        </div>
                     </div>
-                </div>
-            <% end %>
+                <% end %>
+            </div>
 
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Login</a></li>
@@ -31,24 +32,22 @@
 </header>
 <section id="products" class="bg-gray">
     <div class="container">
-        
-            <div class="row pt-5 d-none d-sm-block d-md-none d-block d-sm-none" id="searchformmobile">
+        <div class="row pt-5 d-none d-sm-block d-md-none d-block d-sm-none" id="searchformmobile">
+            <div class="col">
                 <%= form_for :search_items, url: results_path, method: :get do |form| %>
-                <div class="col">
+                <div class="input-group">
+                    <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", placeholder: "Search Items Or Product..." %>
+                    <div class="input-group-append">
+                        <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
+                        <i class="fas fa-search"></i>
+                        <% end -%>
 
-                    <div class="input-group">
-
-                        <%= form.text_field :query, value: params[:search_items].presence && params[:search_items][:query], class: "form-control btn-pill-left", id: "search-width", placeholder: "Search Items Or Product..." %>
-                        <div class="input-group-append">
-                            <%= button_tag( type: "submit", class: "btn btn-primary btn-pill-right") do %>
-                                <i class="fas fa-search"></i>
-                            <% end -%>
-                        </div>
+                        
                     </div>
                 </div>
                 <% end %>
             </div>
-        
+        </div>
         <div class="row pt-5" id="filter">
             <div class="col h3">
                 <h1 class="h3">Filter</h1>
