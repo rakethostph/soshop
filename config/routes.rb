@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sub_categories
+  resources :categories
   	root 'pages#index'
   	get 'results', to: "pages#results"
  	resources :affiliates

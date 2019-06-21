@@ -179,4 +179,266 @@ namespace :scraper do
 		end
   	end
 
+  	desc "shopee_cat"
+  	task shopee_cat: :environment do
+		require 'csv'
+		CSV.foreach('shopee_main.csv', headers: true) do |row|
+			Category.create(
+			    category_name: row[0],
+			    category_url: row[1],
+			)
+			puts "Post: " + "#{$.}".to_s
+		end
+  	end
+
+  	desc "shopee_cat"
+  	task shopee_sub_cat: :environment do
+		require "selenium-webdriver"
+		driver = Selenium::WebDriver.for :chrome
+		@cat = Category.all
+
+		@cat.each do |link|
+			url = link.category_url
+			driver.navigate.to "#{url}"
+			wait = Selenium::WebDriver::Wait.new(:timeout => 200)
+			driver.switch_to.active_element
+			sleep 5
+
+			category_urls = wait.until {
+			  element = driver.find_elements(:css, ".full-brand-list-item__brand-cover-image")
+			}
+			category_url = []
+			category_urls.each do |line|
+				category_url << line.attribute("href")
+				
+			end
+
+			category_names = wait.until {
+			  element = driver.find_elements(:css, ".full-brand-list-item__brand-name")
+			}
+			category_name = []
+			category_names.each do |line|
+				category_name << line.text
+				
+			end
+
+			category_name.length.times do |i|
+				SubCategory.create(
+					category_id: link.id,
+			    	subcategory_name: category_name[i],
+			    	sub_category_url: category_url[i]
+				)
+			end
+
+			puts category_name.size
+
+			sleep 5
+
+		end
+		sleep 5
+  	end
+
+  	desc "shopee_product"
+  	task shopee_product: :environment do
+		require "selenium-webdriver"
+		require "csv"
+
+		driver = Selenium::WebDriver.for :chrome
+		@cat = SubCategory.all
+
+		# t.string "subcategory_name"
+    	#t.string "sub_category_url"
+    	#shopee-item-card__text-name
+		@cat.each do |link|
+			url = link.sub_category_url
+			driver.navigate.to "#{url}"
+			wait = Selenium::WebDriver::Wait.new(:timeout => 200)
+			driver.switch_to.active_element
+			sleep 5
+			begin
+
+				page_total = wait.until {
+				  element = driver.find_element(:css, ".shopee-mini-page-controller__total")
+				}
+
+				max_page = page_total.text.to_i
+
+				# puts max_page
+
+				# item_name = []
+				item_url = []
+			
+				max_page.times.each do |i|
+					page  = driver.navigate.to "#{url}?page=#{i+0}&sortBy=pop"
+					wait = Selenium::WebDriver::Wait.new(:timeout => 20)
+					driver.switch_to.active_element
+
+					sleep 5
+					driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+					sleep 2
+
+					category_urls = wait.until {
+					  element = driver.find_elements(:xpath, "//div[contains(@class,'shop-search-result-view__item')]/div/a")
+					}
+
+					category_urls.each do |line|
+						item_url << line.attribute("href")
+					end
+
+					# item_url.length.times do |i|
+
+					# 	item = Item.new
+					# 	item.item_url = item_url[i]
+					# 	item.save
+					# puts item_url[i]
+					# end
+
+					CSV.open('db/shopee_items_urls.csv', 'a+') do |file|
+						# file << ["Item Url"]
+						item_url.length.times do |i|
+							file << [item_url[i]]
+							puts item_url[i]
+						end
+					end
+
+
+					
+
+					# puts category_name.size
+
+					sleep 2
+				end
+				# item_url.length.times do |i|
+				# 	item = Item.new
+				# 	item.item_url = item_url[i]
+				# 	item.save
+	
+				# puts item_url[i]
+				# end
+				# sleep 1
+
+				
+
+			rescue Exception => e
+				puts e
+			end
+			
+			
+		end
+		sleep 5
+  	end
+  	desc "shopee_product"
+  	task update_sub_category: :environment do
+  		require "selenium-webdriver"
+		require "csv"
+		begin
+
+		driver = Selenium::WebDriver.for :chrome
+		@cat = SubCategory.where(product_total: nil)
+
+		
+
+			@cat.each do |link|
+				url = link.sub_category_url
+				driver.navigate.to "#{url}"
+				wait = Selenium::WebDriver::Wait.new(:timeout => 20)
+				driver.switch_to.active_element
+				sleep 2
+
+				product_total = wait.until {
+					  element = driver.find_element(:css, ".section-seller-overview__item-text-value")
+				}
+
+				total =  product_total.text.to_i
+
+				link.update_attribute(:product_total, total)
+
+				puts total
+			end
+
+		rescue Exception => e
+				puts e
+		end
+
+  		
+  	end
+
+	desc "shopee_product"
+	task item_url_create: :environment do
+		require 'csv'
+		CSV.foreach('db/shopee_items_url.csv', headers: true) do |row|
+			Item.create(
+			    item_url: row[0],
+			)
+
+			puts "Item: " + "#{$.}".to_s
+		end
+	end
+
+	desc "shopee_product"
+	task update_items: :environment do
+		require 'csv'
+		require "selenium-webdriver"
+		driver = Selenium::WebDriver.for :chrome
+		wait = Selenium::WebDriver::Wait.new(:timeout => 20)
+
+		@items = Item.where(item_name: nil)
+		@items.each do |item|
+			
+			begin
+			
+				url = item.item_url
+				driver.navigate.to "#{url}"
+
+				item_name = wait.until {
+					  element = driver.find_element(:css, ".qaNIZv")
+				}
+
+
+				# rating = wait.until {
+				# 	  element = driver.find_element(:css, "._2z6cUg")
+				# }
+
+				# review = wait.until {
+				# 	  element = driver.find_element(:xpath, "//div[contains(@class,'flex')]/div")
+				# }
+
+				# regular_price = wait.until {
+				# 	  element = driver.find_element(:css, "._3_ISdg")
+				# }
+				# sales_price = wait.until {
+				# 	  element = driver.find_element(:css, "._3n5NQx")
+				# }
+
+				# total_sold = wait.until {
+				# 	  element = driver.find_element(:css, "._22sp0A")
+				# }
+
+				# brand = wait.until {
+				# 	  element = driver.find_element(:css, "._2H-513")
+				# }
+
+				# # ship_from = wait.until {
+				# # 	  element = driver.find_element(:xpath, "//div[contains(@class,'_1ymsZN')]/div")
+				# # }
+				# description = wait.until {
+				# 	  element = driver.find_element(:css, "._2u0jt9")
+				# }
+				puts single_item = item_name.text
+
+				item.update_column :item_name, single_item
+				# item.update_attribute(:item_details, description.text)
+				# item.update_attribute(:item_old_price, regular_price.text.delete('₱ ,'))
+				# item.update_attribute(:item_new_price, sales_price.text.delete('₱ ,'))
+				# item.update_attribute(:item_av_rating, rating.text)
+				# item.update_attribute(:item_seller_name, brand.text)
+				
+			rescue Exception => e
+				puts e
+			end
+			
+		end
+		
+	end
+
 end
